@@ -9,12 +9,12 @@ class BeritaController extends Controller
 {
     public function index(){
         $berita = Berita::with('kategori')->get();
-        return view('backend.berita.list', compact('berita'));
+        return view('backend.content.berita.list', compact('berita'));
 
     }
     public function tambah(){
         $kategori = Kategori::all();
-        return view('backend.berita.formTambah', compact('kategori'));
+        return view('backend.content.berita.formTambah', compact('kategori'));
 
     }
     public function prosesTambah(Request $request){
@@ -47,7 +47,7 @@ class BeritaController extends Controller
     public function ubah($id){
         $berita = Berita::findOrFail($id);
         $kategori = Kategori::all();
-        return view('backend.berita.formUbah', compact('berita','kategori'));
+        return view('backend.content.berita.formUbah', compact('berita','kategori'));
 
     }
     public function prosesUbah(Request $request){
